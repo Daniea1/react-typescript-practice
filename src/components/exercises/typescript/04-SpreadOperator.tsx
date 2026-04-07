@@ -9,17 +9,25 @@ export default function SpreadOperator() {
   const overrides = { size: "lg" };
 
   // TODO: Copy `nums` into a new array using spread.
+  const copy = [...nums];
 
   // TODO: Merge `letters` and `more` into a single array using spread.
+  const lettersMore = [...letters, ...more];
 
   // TODO: Copy `original` into a new object using spread.
+  const originalCopy = { ...original };
 
   // TODO: Merge `defaults` and `overrides` into one object. Later keys should win.
+  const defaultsOverridesMerge = { ...defaults, ...overrides };
 
-  // TODO: Write a function `sum` that uses a rest parameter (...nums: number[])
-  //       to accept any number of arguments and returns their sum.
+  // TODO: Write a function `sum` that uses a rest parameter (...nums: number[]) 
+  // to accept any number of arguments and returns their sum.
+  const sum = (...nums: number[]): number => {
+    return nums.reduce((total, n) => total + n, 0);
+  };
 
   // TODO: Destructure the first element as `head` and collect the rest into `tail`.
+  const [head, ...tail] = nums;
 
   return (
     <ExerciseCard
@@ -32,12 +40,12 @@ export default function SpreadOperator() {
     >
       <OutputBox
         entries={[
-          // TODO: { label: "[...nums] copy", value: ??? },
-          // TODO: { label: "[...letters, ...more]", value: ??? },
-          // TODO: { label: "{ ...original } copy", value: ??? },
-          // TODO: { label: "{ ...defaults, ...overrides }", value: ??? },
-          // TODO: { label: "sum(1, 2, 3, 4)", value: ??? },
-          // TODO: { label: "[head, ...tail]", value: ??? },
+          { label: "[...nums] copy", value: `${copy}` },
+          { label: "[...letters, ...more]", value: `${lettersMore}` },
+          { label: "{ ...original } copy", value: JSON.stringify(originalCopy) },
+          { label: "{ ...defaults, ...overrides }", value: JSON.stringify(defaultsOverridesMerge) },
+          { label: "sum(1, 2, 3, 4)", value: sum(1, 2, 3, 4) },
+          { label: "[head, ...tail]", value: `head: ${head}, tail: ${tail}` },
         ]}
       />
     </ExerciseCard>
