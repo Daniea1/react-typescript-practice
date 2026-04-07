@@ -12,13 +12,30 @@ export default function ArrowFunctions2() {
   //       Hint: the arrow function inside tick can safely use `this.seconds`
   //             because it inherits `this` from the enclosing method.
 
+  const clock = {
+    seconds: 0,
+    tick() {
+      this.seconds++;
+      const helper = () => `current time: ${this.seconds}s`;
+      helper();
+    }
+  };
+
+  clock.tick();
+  clock.tick();
+
   // TODO: Write a `transform` function with this signature:
   //         transform(arr: number[], fn: (n: number) => number): number[]
   //       It should apply `fn` to every element and return the new array.
   //       Write it using arrow function syntax for the function body.
 
+  const transform = (arr: number[], fn: (n: number) => number): number[] => arr.map(fn);
+
   // TODO: Call transform([1, 2, 3], n => n ** 2)  — squares each element.
   // TODO: Call transform([1, 2, 3], n => n + 10)  — adds 10 to each element.
+
+  const squares = transform([1, 2, 3], n => n ** 2);
+  const addTen = transform([1, 2, 3], n => n + 10);
 
   return (
     <ExerciseCard
@@ -31,9 +48,9 @@ export default function ArrowFunctions2() {
     >
       <OutputBox
         entries={[
-          // TODO: { label: "clock.seconds after tick() x2", value: clock.seconds },
-          // TODO: { label: "transform([1,2,3], n => n ** 2)", value: ??? },
-          // TODO: { label: "transform([1,2,3], n => n + 10)", value: ??? },
+          { label: "clock.seconds after tick() x2", value: clock.seconds },
+          { label: "transform([1,2,3], n => n ** 2)", value: `${squares}` },
+          { label: "transform([1,2,3], n => n + 10)", value: `${addTen}` },
         ]}
       />
     </ExerciseCard>
