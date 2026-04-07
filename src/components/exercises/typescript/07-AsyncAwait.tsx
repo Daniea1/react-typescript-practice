@@ -39,7 +39,7 @@ export default function AsyncAwait() {
         Await two Promises sequentially and show both results.
       `}
     >
-      <div className="bg-muted rounded-md p-3 font-mono text-sm min-h-[80px] space-y-1">
+      <div className="bg-muted rounded-md p-3 font-mono text-sm min-h-20 space-y-1">
         {output.length === 0 ? (
           <span className="text-muted-foreground italic">Implement the TODOs to see output…</span>
         ) : (

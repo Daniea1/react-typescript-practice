@@ -2,11 +2,22 @@ import { ExerciseCard, OutputBox } from "@/components/exercises/ExerciseCard";
 
 export default function LetVsConst() {
   // TODO: Declare a `let` variable with a number. Reassign it. Store both values.
+  let randomNum: number = 10;
+  const initialNum = randomNum;
+  randomNum = 42;
 
   // TODO: Declare a `const` variable. Add a comment explaining why reassigning it throws.
 
-  // TODO: Declare a `const` object. Mutate one of its properties.
-  //       Store the value before and after the mutation.
+  // const binds the variable name to a fixed reference in memory.                               
+  // Reassigning it (e.g. name = "Bob") throws a TypeError at runtime because the binding itself is immutable — you can't point `name` at a new value. 
+  const name: string = "Alice"
+
+  // TODO: Declare a `const` object. Mutate one of its properties. Store the value before and after the mutation.
+  const obj = { name: "Alice" };
+  const beforeMutation = obj.name;
+  
+  obj.name = "bob";
+  const afterMutation = obj.name;
 
   return (
     <ExerciseCard
@@ -19,10 +30,10 @@ export default function LetVsConst() {
     >
       <OutputBox
         entries={[
-          // TODO: { label: "let x (initial)", value: ??? },
-          // TODO: { label: "let x (after reassign)", value: ??? },
-          // TODO: { label: "const obj.name (before)", value: ??? },
-          // TODO: { label: "const obj.name (after mutation)", value: ??? },
+          { label: "let x (initial)", value: initialNum },
+          { label: "let x (after reassign)", value: randomNum },
+          { label: "const obj.name (before)", value: beforeMutation },
+          { label: "const obj.name (after mutation)", value: afterMutation },
         ]}
       />
     </ExerciseCard>
