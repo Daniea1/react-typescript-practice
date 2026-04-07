@@ -4,20 +4,38 @@ export default function LetVsConst2() {
   // TODO: You have a counter that starts at 0 and needs to be incremented 3 times.
   //       Declare it with the CORRECT keyword, then increment it 3 times.
   //       Question: why can't you use `const` here?
+  //       Answer: you can't point `name` at a new value. 
+
+  let counter: number = 0;
+
+  counter += 1;
+  counter += 1;
+  counter += 1;
+
 
   // TODO: You have an app config that never gets reassigned, but its properties do change.
   //       Declare it with the CORRECT keyword.
   //       Then change the `theme` property from "light" to "dark".
   //       Question: why can `const` work here even though a property changes?
 
+  const config = { theme: "light" };
+  config.theme = "dark";
+
+
   // TODO: Declare a `PI` constant (3.14159) that should never change.
-  //       Add a comment explaining what would happen at runtime if you tried: PI = 3;
+  const PI: number = 3.14159;
 
   // TODO: `const` in a block creates a NEW binding each time the block runs.
   //       Use a for loop with `const` to show this:
   //       Inside the loop body, declare `const message = \`item \${i}\`` and push it to an array.
   //       (This works because each iteration is a new block scope.)
+
   const messages: string[] = [];
+
+  for (let i = 0; i < 3; i++) {
+    const message = `item ${i}`;
+    messages.push(message);
+  };
 
   return (
     <ExerciseCard
@@ -30,10 +48,10 @@ export default function LetVsConst2() {
     >
       <OutputBox
         entries={[
-          // TODO: { label: "counter after 3 increments", value: counter },
-          // TODO: { label: "config.theme after change", value: config.theme },
-          // TODO: { label: "PI", value: PI },
-          // TODO: { label: "messages from const-in-loop", value: messages },
+          { label: "counter after 3 increments", value: counter },
+          { label: "config.theme after change", value: config.theme },
+          { label: "PI", value: PI },
+          { label: "messages from const-in-loop", value: `${messages}` },
         ]}
       />
     </ExerciseCard>
