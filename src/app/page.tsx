@@ -10,7 +10,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
         <Link
           href="/typescript"
           className="flex-1 border rounded-xl p-8 hover:shadow-md transition-shadow cursor-pointer bg-card group"
@@ -44,6 +44,23 @@ export default function Home() {
             <li>Conditional &amp; List rendering</li>
             <li>Lifting state &amp; Data flow</li>
             <li>Data fetching &amp; Custom hooks</li>
+          </ul>
+        </Link>
+
+        <Link
+          href="/typescript2"
+          className="flex-1 border rounded-xl p-8 hover:shadow-md transition-shadow cursor-pointer bg-card group"
+        >
+          <h2 className="text-xl font-semibold group-hover:text-foreground">
+            TypeScript Exercises R2
+          </h2>
+          <p className="text-muted-foreground text-sm mt-1">5 topics · round 2</p>
+          <ul className="mt-4 text-xs text-muted-foreground space-y-1">
+            <li>let vs const</li>
+            <li>Arrow functions</li>
+            <li>Destructuring</li>
+            <li>Spread operator</li>
+            <li>map / filter / reduce</li>
           </ul>
         </Link>
       </div>
